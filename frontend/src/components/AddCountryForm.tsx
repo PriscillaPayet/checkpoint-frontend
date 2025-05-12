@@ -7,7 +7,7 @@ type Props = {
   onSuccess?: () => void;
 };
 
-export function CountryForm({ onSuccess }: Props) {
+export function AddCountryForm({ onSuccess }: Props) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
