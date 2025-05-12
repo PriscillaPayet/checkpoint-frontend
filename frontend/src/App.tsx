@@ -16,10 +16,10 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route Component={PageLayout}>
-            <Route path="/" Component={HomePage} />
-            <Route path="/country/:code" Component={CountryDetailPage} />
-            <Route path="*" Component={() => <Navigate to="/" />} />
+          <Route element={<PageLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/country/:code" element={<CountryDetailPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Route>
         </Routes>
       </BrowserRouter>

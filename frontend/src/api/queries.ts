@@ -15,6 +15,7 @@ export const GET_COUNTRIES = gql`
       id
       name
       emoji
+      code
     }
   }
 `;

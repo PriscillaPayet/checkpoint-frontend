@@ -4,6 +4,7 @@ import { GET_COUNTRY } from "../api/queries";
 
 export function CountryDetailPage() {
   const { code } = useParams();
+  console.log(code);
 
   const { data, loading, error } = useQuery(GET_COUNTRY, {
     variables: { code },
@@ -17,18 +18,20 @@ export function CountryDetailPage() {
   const country = data.country;
 
   return (
-    <div className="p-4 space-y-2">
-      <h1 className="text-2xl font-bold">
-        {country.emoji} {country.name}
-      </h1>
-      <p>
-        <strong>Code :</strong> {country.code}
-      </p>
-      {country.continent && (
-        <p>
-          <strong>Continent :</strong> {country.continent.name}
-        </p>
-      )}
+    <div className="country-detail-container">
+      <div className="country-detail-card">
+        <div className="country-detail-emoji">{country.emoji}</div>
+        <div className="country-detail-info">
+          <p>
+            <strong>Name :</strong> {country.name} ({country.code})
+          </p>
+          {country.continent && (
+            <p>
+              <strong>Continent :</strong> {country.continent.name}
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

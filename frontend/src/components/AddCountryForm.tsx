@@ -42,52 +42,45 @@ export function AddCountryForm({ onSuccess }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 mt-6 max-w-md">
+    <form onSubmit={handleSubmit}>
       <div>
-        <label className="block">Name</label>
+        <label>Name</label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
           required
         />
       </div>
 
       <div>
-        <label className="block">Code</label>
+        <label>Code</label>
         <input
           type="text"
           name="code"
           value={formData.code}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
           required
         />
       </div>
 
       <div>
-        <label className="block">Emoji</label>
+        <label>Emoji</label>
         <input
           type="text"
           name="emoji"
           value={formData.emoji}
           onChange={handleChange}
-          className="w-full border px-2 py-1 rounded"
           required
         />
       </div>
 
-      <button
-        type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        disabled={loading}
-      >
+      <button type="submit" disabled={loading}>
         {loading ? "Adding..." : "Add Country"}
       </button>
 
-      {error && <p className="text-red-600">Error: {error.message}</p>}
+      {error && <p>Error: {error.message}</p>}
     </form>
   );
 }

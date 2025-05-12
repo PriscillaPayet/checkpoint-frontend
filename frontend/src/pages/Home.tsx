@@ -10,21 +10,20 @@ export function HomePage() {
   if (error) return <p>Erreur : {error.message}</p>;
 
   return (
-    <>
+    <div className="container">
       <AddCountryForm onSuccess={refetch} />
-      <div className="grid gap-4">
+      <div className="countries-list">
         {data.countries.map((country: any) => (
           <Link
             to={`/country/${country.code}`}
             key={country.id}
-            className="block p-4 border rounded shadow hover:bg-gray-50 transition"
+            className="country-item"
           >
-            <h2 className="text-xl">
-              {country.emoji} {country.name}
-            </h2>
+            <div className="country-name">{country.name}</div>
+            <div className="country-emoji">{country.emoji}</div>
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }
